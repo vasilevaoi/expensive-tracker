@@ -2,8 +2,7 @@
 import UIKit
 
 class MainController: UIViewController {
-
-    override func loadView () {
+    override func loadView() {
         super.loadView()
         let view = UIView()
         view.backgroundColor = .tintColor
@@ -17,7 +16,7 @@ class MainController: UIViewController {
 
         let xCor = view.frame.origin.x
         let xCor2 = view.frame.size.width
-        myLabel.frame = CGRect(x: (xCor + xCor2)/2 - (myLabel.frame.origin.x + myLabel.frame.width)/2, y: 50, width: 200, height: 50)
+        myLabel.frame = CGRect(x: (xCor + xCor2) / 2 - (myLabel.frame.origin.x + myLabel.frame.width) / 2, y: 50, width: 200, height: 50)
 
         view.addSubview(myLabel)
 
@@ -34,14 +33,9 @@ class MainController: UIViewController {
         view.addSubview(myUITextField)
     }
 
-
-
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        // Do any additional setup after loading the view.
 //        print("ViewDidLoad вызван.")
 //    }
-
-
 }
-

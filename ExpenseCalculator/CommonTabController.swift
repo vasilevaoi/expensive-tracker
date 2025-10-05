@@ -2,27 +2,45 @@
 import UIKit
 
 class CommonTabController: UIViewController {
+    private let commonLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Общее"
+        label.textColor = .black
+        label.textAlignment = .center
 
-    override func loadView () {
-        super.loadView()
-        let view = UIView()
+        return label
+    }()
+
+    private let balanceLabel: UILabel = {
+        let label = UILabel()
+        label.text = "12 345"
+        label.textColor = .black
+        label.textAlignment = .center
+
+        return label
+    }()
+
+    override func loadView() {
+        view = UIView()
         view.backgroundColor = .white
-        view.frame = CGRect(x: 0, y: 0, width: 100, height: view.frame.height)
-        self.view = view
-
-        let myLabel = UILabel()
-        myLabel.text = "Общее"
-        myLabel.textColor = .black
-        myLabel.textAlignment = .center
-
-        let xCor = view.frame.origin.x
-        let xCor2 = view.frame.size.width
-        myLabel.frame = CGRect(x: (xCor + xCor2)/2 - (myLabel.frame.origin.x + myLabel.frame.width)/2, y: 50, width: 200, height: 50)
-
-        view.addSubview(myLabel)
+        view = view
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
+        view.addSubview(commonLabel)
+        view.addSubview(balanceLabel)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        let width = view.bounds.width
+        let height = view.bounds.height
+        let safeArea = view.safeAreaInsets.top / 2
+
+        commonLabel.frame = CGRect(x: 20, y: safeArea, width: width - 40, height: height * 0.05)
+        balanceLabel.frame = CGRect(x: 20, y: commonLabel.frame.maxY, width: width - 40, height: height * 0.05)
+    }
 }
-
-
