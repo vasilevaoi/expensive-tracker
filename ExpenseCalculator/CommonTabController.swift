@@ -2,7 +2,7 @@
 import UIKit
 
 class CommonTabController: UIViewController {
-    private let commonLabel: UILabel = {
+    private lazy var commonLabel: UILabel = {
         let label = UILabel()
         label.text = "Общее"
         label.textColor = .black
@@ -11,7 +11,7 @@ class CommonTabController: UIViewController {
         return label
     }()
 
-    private let balanceLabel: UILabel = {
+    private lazy var balanceLabel: UILabel = {
         let label = UILabel()
         label.text = "12 345"
         label.textColor = .black
@@ -21,16 +21,18 @@ class CommonTabController: UIViewController {
     }()
 
     override func loadView() {
-        view = UIView()
+        super.loadView()
+
+        let view = UIView()
         view.backgroundColor = .white
-        view = view
+        self.view = view
+
+        view.addSubview(commonLabel)
+        view.addSubview(balanceLabel)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.addSubview(commonLabel)
-        view.addSubview(balanceLabel)
     }
 
     override func viewDidLayoutSubviews() {
