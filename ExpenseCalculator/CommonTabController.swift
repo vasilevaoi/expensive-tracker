@@ -2,22 +2,20 @@
 import UIKit
 
 class CommonTabController: UIViewController {
-    private lazy var commonLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Общее"
-        label.textColor = .black
-        label.textAlignment = .center
-
-        return label
+    private lazy var commonLabel: LabelView = {
+        let config = LabelConfiguration(
+            text: "Общее",
+            font: .boldSystemFont(ofSize: 24),
+            color: Color.purple
+        )
+        return LabelView(config: config)
     }()
 
-    private lazy var balanceLabel: UILabel = {
-        let label = UILabel()
-        label.text = "12 345"
-        label.textColor = .black
-        label.textAlignment = .center
-
-        return label
+    private lazy var balanceLabel: LabelView = {
+        let config = LabelConfiguration(
+            text: "12 345",
+        )
+        return LabelView(config: config)
     }()
 
     override func loadView() {
